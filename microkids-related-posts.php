@@ -3,7 +3,7 @@
 Plugin Name: Microkid's Related Posts
 Plugin URI: http://www.microkid.net/wordpress/related-posts/
 Description: Manually add related posts
-Author: microkid.net@gmail.com
+Author: Microkid
 Version: 1.0
 Author URI: http://www.microkid.net/
 
