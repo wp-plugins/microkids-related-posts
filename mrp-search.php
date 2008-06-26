@@ -3,6 +3,11 @@
 	if( isset( $_GET['mrp_s'] ) ) {
 	
 	require('../../../wp-config.php');
+	
+	// Let's keep this a tool for logged in users
+	if( ! current_user_can("edit_posts") ) {
+		die('Please log in');
+	}
 
 	global $wpdb;
 	$s = $wpdb->escape( $_GET['mrp_s'] );
