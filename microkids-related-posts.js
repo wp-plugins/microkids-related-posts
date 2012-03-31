@@ -12,6 +12,7 @@ jQuery(document).ready(function($){
 		tabToShowId = $(this).attr('rel');
 		$(this).parent().addClass('MRP_current_tab');
 		$('#'+tabToShowId).show();
+		MPR_current = tabToShowId;
 		var parts = tabToShowId.split("-");
 		current_tab = parts[parts.length-1];
 		return false;
@@ -24,13 +25,15 @@ jQuery(document).ready(function($){
 	});
 
 	var timer = 0;	
-	$(".MRP_search").bind( 'keyup', function(e){
-		var id = $(this).attr('id');
-		if( ( e.keyCode > 47 && e.keyCode < 91 ) || e.keyCode == 8 || e.keyCode == 13 ){
-			clearTimeout( timer );
-			timer = setTimeout( function() {
-						MRP_search(id);
-					}, 200 );
+	$(".MRP_search").bind('keyup', function(e){
+		if($(this).val().length > 3) {
+			var id = $(this).attr('id');
+			if((e.keyCode > 47 && e.keyCode < 91 ) || e.keyCode == 8 || e.keyCode == 13){
+				clearTimeout(timer);
+				timer = setTimeout(function() {
+					MRP_search(id);
+				}, 200);
+			}
 		}
 	});
 	
@@ -44,7 +47,7 @@ jQuery(document).ready(function($){
 		var parts = id.split("-");
 		var postTypeIndex = parts[parts.length-1];
 		if( $("#MRP_search-"+postTypeIndex).val() != '' ) {
-			var searchResults = "../wp-content/plugins/microkids-related-posts/mrp-search.php?mrp_s=" + encodeURIComponent( $("#MRP_search-"+postTypeIndex).val() );
+			var searchResults = "?mrp_s=" + encodeURIComponent( $("#MRP_search-"+postTypeIndex).val() );
 			searchResults += "&mrp_scope=" + escape( $("input[name='MRP_scope-"+postTypeIndex+"']:checked").val() );
 			searchResults += "&mrp_post_type=" + escape( $("#MRP_post_type_name-"+postTypeIndex).val() );
 			if( $("#post_ID").val() ) {
@@ -55,13 +58,13 @@ jQuery(document).ready(function($){
 				function() { $("#MRP_results-"+postTypeIndex+" li .MRP_result").each(function(i) {
 						$(this).click(function() {
 							var postID = this.id.substring(7);
-							var resultID = "related-post-" + postID;
+							var resultID = "related-post_" + postID;
 							if( $("#"+resultID).text() == '' ) {
 								$("#MRP_related_posts_replacement-"+postTypeIndex).hide();
 								var newLI = document.createElement("li");
 								$(newLI).attr('id', resultID);
 								$(newLI).text($(this).text());
-								$("#MRP_relatedposts_list-"+postTypeIndex).append( '<li id="'+resultID+'"><span>'+$(this).text()+'</span><span><a class="MRP_deletebtn" onclick="MRP_remove_relationship(\''+resultID+'\')">X</a></span><input type="hidden" name="MRP_related_posts[]" value="'+postID+'" /></li>' );
+								$("#MRP_relatedposts_list-"+postTypeIndex).append( '<li id="'+resultID+'"><span class="MPR_moovable"><strong>'+$(this).text()+'</strong><span><a class="MRP_deletebtn" onclick="MRP_remove_relationship(\''+resultID+'\')">X</a></span></span><input type="hidden" name="MRP_related_posts['+MPR_current+'][]" value="'+postID+'" /></li>' );
 								$("#MRP_related_count-"+postTypeIndex).text( ( parseInt($("#MRP_related_count-"+postTypeIndex).text())+1 ) );
 							}
 							else {
@@ -79,6 +82,18 @@ jQuery(document).ready(function($){
 			$("#MRP_results-"+postTypeIndex).html("");
 		}
 	}
+
+	if(!(typeof MPR_CRs_count === 'undefined') && jQuery('#MRP_relatedposts').hasClass('MRP_manual_order')){
+		for( i=0; i <= MPR_CRs_count; i++){
+			jQuery('#MRP_relatedposts_list-'+i).sortable({
+				 handle : '.MPR_moovable',
+				 update : function () {}
+			 });
+		}
+		jQuery("#MRP_relatedposts li").css("cursor", "move");
+	}
+	MPR_current = 'MRP_post_type-1';
+	
 });
 
 function MRP_remove_relationship( postID ) {

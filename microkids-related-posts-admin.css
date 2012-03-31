@@ -9,7 +9,7 @@
 .MRP_relatedposts_list span {
 	display: block;
 	float: left;
-	font-size: 11px;
+	font-size: 12px;
 	white-space: nowrap;
 	font-weight: bold;
 }
@@ -26,7 +26,7 @@
 	width: 100%;
 	margin: 0 0 20px 0;
 	padding: 6px 0 0 2%;
-	background: #EAF2FA;
+	background: #f1f1f1;
 }
 .MRP_tab {
 	float: left;
@@ -36,33 +36,34 @@
 	border: solid 1px #ddd;
 	border-bottom: none;
 	margin: 0 3px 0 0;
-	background: #F1F1F1;
-	-moz-border-radius: 6px 6px 0 0;
-	-webkit-border-radius: 6px 6px 0 0;
-	border-radius: 6px 6px 0 0;
+	background: #f5f5f5;
+	-moz-border-radius: 3px 3px 0 0;
+	-webkit-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
 	position: relative;
 	top: 1px;
 	left: 0;
 }
 .MRP_tab a {
-	color: #999;
+	color: #777;
 	text-decoration: none;
 	display: block;
 	float: left;
-	padding: 0 10px;
+	padding: 0 5px;
 	height: 27px;
 	line-height: 27px;
+	font-size: 10px;
 }
 .MRP_tab a:hover {
 	color: default;
 }
 .MRP_current_tab {
-	background: #fff;
-	border-bottom: solid 1px #fff;
+	background: #f8f8f8;
+	border-bottom: solid 1px #f8f8f8;
 	top: 1px;
 }
 .MRP_current_tab a {
-	color: #333;
+	color: #222;
 }
 .MRP_current {
 	display: block;
@@ -76,7 +77,7 @@
 	width: 100%;
 }
 #MRP_relatedposts .MRP_deletebtn {
-	margin: 3px 0pt 0pt 5px;
+	margin: 8px 0pt 0pt 10px;
 	cursor: pointer;
 	width: 10px;
 	height: 10px;
@@ -100,17 +101,18 @@
 	border-width: 4px;
 	border-style: solid;
 	border-color: #cee1ef;
-	width: 75%;
+	width: 77%;
 	float: left;
 	line-height: 24px;
 	list-style: none;
 	clear: left;
+	background: #fff;
 }
 .MRP_results a {
 	float: left;
 }
-.MRP_results .MRP_view_post { 
-	margin: 8px 0pt 0pt 0;
+.MRP_relatedposts_list .MRP_view_post, .MRP_results .MRP_view_post { 
+	margin: 8px 0 0 10px;
 	padding: 0;
 	cursor: pointer;
 	width: 10px;
@@ -120,14 +122,14 @@
 	text-indent: -9999px;
 	overflow: hidden;
 }
-.MRP_results .MRP_view_post {
+.MRP_relatedposts_list .MRP_view_post,.MRP_results .MRP_view_post {
 	background: url(images/link.png) no-repeat;
 }
 .MRP_search_utility {
 	overflow: hidden;
 	width: 100%;
 }
-.MRP_results .MRP_view_post:hover {
+.MRP_relatedposts_list .MRP_view_post:hover, .MRP_results .MRP_view_post:hover {
 	background: url(images/link.png) no-repeat -10px 0;
 }
 .MRP_search_label {
@@ -158,6 +160,10 @@
 .MRP_related_posts_replacement {
 	color: #888;
 }
+.MRP_related_posts_replacement span {
+    padding: 0 10px;
+    font-weight: normal;
+}
 .MRP_results ul {
 	margin: 0;
 	padding: 0;
@@ -172,6 +178,8 @@
 	clear: both;
 	overflow: hidden;
 	width: 75%;
+	background: #fff;
+	border-bottom: 1px solid #DFDFDF;
 }
 html>body .MRP_results ul li {
 	width: 100%;
@@ -180,8 +188,7 @@ html>body .MRP_results ul li {
 	padding: 0 10px;
 }
 .MRP_results ul .alt {
-	background: #f1f1f1;
-	padding: 3px 0;
+	background: #F9F9F9;
 }
 .MRP_search {
 	width: 30%;
@@ -193,21 +200,68 @@ html>body .MRP_results ul li {
 	display: block;
 	float: left;
 	text-align: right;
-	margin: 6px 1% 0 0;
+	margin: 7px 1% 0 0;
 }
 .MRP_relatedposts_list {
 	overflow: auto;
-	width: 75%;
-	height: 100px;
+	width: 78%;
+	height: 250px;
 	margin: 0;
 	list-style: none;
 	border: solid 1px #dedede;
-	padding: 5px;
 	float: left;
+	background: #fff;
 }
 .MRP_relatedposts_list li {
+	line-height: 25px;
+	padding: 3px 0;
+	margin: 0;
 	clear: both;
+	overflow: hidden;
+	width: 100%;
+	border-bottom: 1px solid #DFDFDF;
+	background: #f5f5f5;
+}
+.MRP_relatedposts_list li:nth-child(even) {
+    background: #F9F9F9;
+}
+.MRP_relatedposts_list li.MRP_related_posts_replacement {
+	background: #fff;
+	border-bottom: dotted 1px #dfdfdf;
 }
 .MRP_relatedposts_list a {
 	float: left;
+}
+.MPR_moovable {
+	display: block;
+	width: 100%;
+}
+.MPR_moovable strong {
+    float: left;
+    display: block;
+    padding: 0 0 0 10px;
+    height: 25px;
+    font-weight: normal;
+}
+.MRP_thumbnails_no_support {
+	color: #888;
+	font-style: italic;
+	width:40%;
+}
+.MRP_help {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: 0;
+    background: #eee;
+    font-size: 11px;
+    width: 40%;
+    padding: 5px;    
+}
+.MRP_help a {
+    color: #666;
+    text-decoration: underline;
+}
+#MRP_title {
+    width: 40%;
 }
