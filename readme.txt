@@ -21,7 +21,7 @@ You can display related posts automatically underneath your content, use a short
 
 With its full support for Custom Post Types, this plugin will work perfectly for both basic and advanced WordPress installations.
 
-See the official plugin homepage for [Microkids Related Posts](http://www.microkid.net/wordpress/related-posts/ "Wordpress Related Posts") for more info and discussion.
+See the official plugin homepage for [Related Posts for WordPress](http://www.microkid.net/wordpress/related-posts/ "Wordpress Related Posts") for more info and discussion.
 
 = Features =
 
@@ -32,7 +32,7 @@ See the official plugin homepage for [Microkids Related Posts](http://www.microk
 * Custom post types support
 * Multiple widget support with extended customization options
 * Shortcode support: add the [related-posts] shortcode to your post content to display related posts anywhere you want
-* Automatically display a list of related posts underneath your posts content. No need to add any PHP tags in your template files, but several [functions](http://www.microkid.net/wordpress/related-posts/#API "Microkids Related Posts API functions") available for advanced users.
+* Automatically display a list of related posts underneath your posts content. No need to add any PHP tags in your template files, but several [functions](http://www.microkid.net/wordpress/related-posts/#API "Related Posts for WordPress API functions") available for advanced users.
 * Available in a growing number of languages
 
 == Installation ==
@@ -43,7 +43,7 @@ See the official plugin homepage for [Microkids Related Posts](http://www.microk
 1. The plugin will automatically display related posts underneath your posts content. You can change this and some other settings through the plugins options page under Settings > Related Posts.
 1. Check out the Related Posts options under the Settings menu to further customize!
 
-**Note:** If you want to display the related posts somewhere else on your page, there is a set of [API functions](http://www.microkid.net/wordpress/related-posts/#API "Microkids Related Posts API functions") you can place in your theme files. You can also use the [related-posts] shortcode to display related posts within your content, or use the available widget.
+**Note:** If you want to display the related posts somewhere else on your page, there is a set of [API functions](http://www.microkid.net/wordpress/related-posts/#API "Related Posts for WordPress API functions") you can place in your theme files. You can also use the [related-posts] shortcode to display related posts within your content, or use the available widget.
 
 == Frequently Asked Questions == 
 
@@ -60,10 +60,10 @@ Yes, you place [related-posts] anywhere in your text to display the related post
 You can use a custom message, or display nothing at all (no text, no code).
 
 = I need more options. How can I fully customize the way the related posts are displayed? =
-There is a set of [API functions](http://www.microkid.net/wordpress/related-posts/#API "Microkids Related Posts API functions") available you can use in your themes to display the related posts in any way you can think of.
+There is a set of [API functions](http://www.microkid.net/wordpress/related-posts/#API "Related Posts for WordPress API functions") available you can use in your themes to display the related posts in any way you can think of.
 
 = I'm having trouble using this plugin. How can I reach you? =
-Please leave me a comment at the [Microkids Related Posts](http://www.microkid.net/wordpress/related-posts/ "Microkids Related Posts") homepage.
+Please leave me a comment at the [Related Posts for WordPress](http://www.microkid.net/wordpress/related-posts/ "Related Posts for WordPress") homepage.
 
 == Screenshots ==
 
@@ -100,7 +100,7 @@ Please leave me a comment at the [Microkids Related Posts](http://www.microkid.n
 = 2.4 =
 * You can now add drafts and planned posts as related posts, without them appearing on your site before they are properly published.
 * Added shortcode support - you can now place the [related-posts] shortcode within the content of your post to display the related posts anywhere you want.
-* (For advanced users) Added a parameter to the MRP_get_related_posts function to optionally get the related posts in an object, so you can easily use it in other plugins or your own custom way of displaying the list of related posts. For documentation on this, see [the API section](http://www.microkid.net/wordpress/related-posts/#API "Microkids Related Posts API functions").
+* (For advanced users) Added a parameter to the MRP_get_related_posts function to optionally get the related posts in an object, so you can easily use it in other plugins or your own custom way of displaying the list of related posts. For documentation on this, see [the API section](http://www.microkid.net/wordpress/related-posts/#API "Related Posts for WordPress API functions").
 
 = 2.3 =
 * Added option to manage search scope: post content, post title, or both
