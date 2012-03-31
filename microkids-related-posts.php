@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Microkid's Related Posts
+Plugin Name: Related Posts for WordPress
 Plugin URI: http://www.microkid.net/wordpress/related-posts/
 Description: Display a set of manually selected related items with your posts
 Author: Microkid

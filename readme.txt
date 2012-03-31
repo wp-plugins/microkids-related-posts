@@ -38,8 +38,8 @@ See the official plugin homepage for [Microkids Related Posts](http://www.microk
 == Installation ==
 
 1. Download the plugin and unzip,
-1. Put the related-posts folder in your wp-content/plugins folder,
-1. Activate the plugin through the Wordpress admin,
+1. Put the microkids-related-posts folder in your wp-content/plugins folder,
+1. Activate the plugin through the WordPress admin,
 1. The plugin will automatically display related posts underneath your posts content. You can change this and some other settings through the plugins options page under Settings > Related Posts.
 1. Check out the Related Posts options under the Settings menu to further customize!
 
@@ -50,8 +50,8 @@ See the official plugin homepage for [Microkids Related Posts](http://www.microk
 = Does this plugin have a widget? =
 Yes, if your theme supports it you can display multiple related posts widgets in your dynamic sidebars.
 
-= Does this plugin work with Wordpress versions &lt; 2.5? =
-No, it is not backward compatible with Wordpress version older than 2.5.
+= Does this plugin work with WordPress versions &lt; 2.5? =
+No, it is not backward compatible with WordPress version older than 2.5.
 
 = Can I add the related posts to my post text using a shortcode? =
 Yes, you place [related-posts] anywhere in your text to display the related posts wherever you want. Additionally, you can add an attribute "posttype" to the shortcode to display the related posts of a specific post type only. Example: [related-posts posttype=page]
@@ -93,7 +93,7 @@ Please leave me a comment at the [Microkids Related Posts](http://www.microkid.n
 
 = 2.5 =
 * Improved the AJAX search utility with a more fluent way of updating the results list
-* Added support for multiple instances of the widget by using the new [Widget API](http://codex.wordpress.org/Version_2.8#New_Widgets_API) introduced in Wordpress 2.8
+* Added support for multiple instances of the widget by using the new [Widget API](http://codex.wordpress.org/Version_2.8#New_Widgets_API) introduced in WordPress 2.8
 * Fixed a bug where the widget wouldn't show on pages
 * Related private posts are now displayed to users who have the necessary priviliges
 
@@ -114,7 +114,7 @@ Please leave me a comment at the [Microkids Related Posts](http://www.microkid.n
 = 2.2 =
 * Added optimized SQL for related posts query provided by [Peter Raganitsch](http://blog.oracleapex.at "Peter Raganitsch]")
 * Added option for turning reciprocal function off provided by [Brock Boland](http://www.brockboland.com/ "Brock Boland]")
-* Fixed some layout issues in Wordpress 2.7
+* Fixed some layout issues in WordPress 2.7
 * The search tool now searches in post title and post content.
 
 = 2.1.1 =
