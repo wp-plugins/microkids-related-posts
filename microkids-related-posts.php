@@ -144,8 +144,8 @@ function MRP_add_custom_box() {
  * MRP_load_admin_includes - Load admin javascript and css files for admin
  */
 function MRP_load_admin_includes() {	
-	echo '<script type="text/javascript" src="'.get_option('siteurl').'/wp-content/plugins/microkids-related-posts/microkids-related-posts.js"></script>'; 
-	echo '<link rel="stylesheet" type="text/css" href="'.get_option('siteurl').'/wp-content/plugins/microkids-related-posts/microkids-related-posts-admin.css" />';
+	echo '<script type="text/javascript" src="'.get_option('siteurl').'/wp-content/plugins/microkids-related-posts/microkids-related-posts.js?v=4.0.1"></script>'; 
+	echo '<link rel="stylesheet" type="text/css" href="'.get_option('siteurl').'/wp-content/plugins/microkids-related-posts/microkids-related-posts-admin.css?v=4.0.1" />';
 }
 
 /**
