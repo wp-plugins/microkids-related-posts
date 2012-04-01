@@ -4,7 +4,7 @@ Plugin Name: Microkid's Related Posts
 Plugin URI: http://www.microkid.net/wordpress/related-posts/
 Description: Display a set of manually selected related items with your posts
 Author: Microkid
-Version: 4.0
+Version: 4.0.1
 Author URI: http://www.superinteractive.com
 
 This software is distributed in the hope that it will be useful,
@@ -71,9 +71,9 @@ function MRP_activate() {
 		$create = $wpdb->query( $query );
 	}
 	else {
-		$query = "SELECT * FROM ".$wpdb->prefix."post_relationships LIMIT 1";
-		$check_column_exist = $wpdb->get_results( $query );
-		if(!$check_column_exist[0]->position1){
+		$query = "SHOW COLUMNS FROM ".$wpdb->prefix."post_relationships LIKE 'position1'";
+		$check_column_exist = $wpdb->get_results($query);
+		if(!$check_column_exist){
 			// Upgrading to 4.0
 		 	$query = "ALTER TABLE `".$wpdb->prefix."post_relationships` ADD COLUMN `position1` BIGINT(20) UNSIGNED NULL DEFAULT 0  AFTER `post2_id`";
 			$add_ordering = $wpdb->query( $query );
@@ -197,7 +197,7 @@ function MRP_inner_custom_box() {
 					if( $related_post->post_status != 'publish' ) {
 						$post_title = $post_title . ' ('.$related_post->post_status.')';
 					}
-					echo '<li id="related-post_'.$related_post->ID.'"><span class="MPR_moovable"><strong>'.$post_title.' </strong> <span><a href="'.get_permalink( $related_post->ID ).'" title="View this post" class="MRP_view_post" target="_blank">&rsaquo;</a><a class="MRP_deletebtn" onclick="MRP_remove_relationship(\'related-post_'.$related_post->ID.'\')">X</a></span></span>';
+					echo '<li id="related-post_'.$related_post->ID.'"><span class="MPR_moovable"><strong>'.$post_title.' </strong> <span class="MRP_related_post_options"><a href="'.get_permalink( $related_post->ID ).'" title="View this post" class="MRP_view_post" target="_blank">&rsaquo;</a><a class="MRP_deletebtn" onclick="MRP_remove_relationship(\'related-post_'.$related_post->ID.'\')">X</a></span></span>';
 					echo '<input type="hidden" name="MRP_related_posts[MRP_post_type-'.$n.'][]" value="'.$related_post->ID.'" /></li>';
 				}			
 			}			
@@ -380,9 +380,6 @@ function MRP_get_related_posts( $post_id, $return_object = false, $hide_unpublis
     	    case 'random' :
     	        $order .= " RAND() ";
     	    break;
-    	    case 'date_desc' :
-    	        $order .= " post_date DESC ";
-    	    break;
     	    case 'date_asc' :
     	        $order .= " post_date ASC ";
     	    break;
@@ -392,6 +389,10 @@ function MRP_get_related_posts( $post_id, $return_object = false, $hide_unpublis
     	    case 'title_asc' :
     	        $order .= " post_title ASC ";
     	    break;
+    	    default: // date_desc
+    	        $order .= " post_date DESC ";
+    	    break;
+    	    
     	}
     }
 	if($options['display_reciprocal']) {
@@ -757,7 +758,7 @@ function MRP_options_page() {
 		}
 		else {
 	        $new_options['order_type'] = "auto";
-	        $new_options['order'] = $_POST['MRP_order_by'];
+	        $new_options['order'] = $_POST['MRP_order'];
 		}
 		
 		if( isset($_POST['MRP_custom_post_types'])) {

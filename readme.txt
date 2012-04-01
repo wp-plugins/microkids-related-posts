@@ -73,6 +73,10 @@ Please leave me a comment at the [Related Posts for WordPress](http://www.microk
 
 == Change Log ==
 
+= 4.0.1 =
+* Fixed an issue where proper DB columns for manual positions weren't generated
+* Fixed issue where automatic ordering wasn't updating in settings
+
 = 4.0 =
 * Added support for thumbnails
 * Added support for manually ordering related posts
