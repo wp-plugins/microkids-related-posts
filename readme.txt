@@ -3,7 +3,7 @@ Contributors: microkid,
 Tags: related, posts, seo, content, articles, relevant, similar, custom posts, custom post types
 Requires at least: 2.5
 Tested up to: 3.3.1
-Stable tag: trunk
+Stable tag: 4.0.2
 
 Increase your pageviews and SEO by manually selecting related posts for your content. Easy reciprocal linking of related posts and pages.
 
@@ -72,6 +72,9 @@ Please leave me a comment at the [Related Posts for WordPress](http://www.microk
 3. The Related Posts widget lets you automatically display related posts in your dynamic sidebar
 
 == Change Log ==
+
+= 4.0.2 =
+* Added hook for proper database configuration when upgrading
 
 = 4.0.1 =
 * Fixed an issue where proper DB columns for manual positions weren't generated

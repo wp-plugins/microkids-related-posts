@@ -4,7 +4,7 @@ Plugin Name: Microkid's Related Posts
 Plugin URI: http://www.microkid.net/wordpress/related-posts/
 Description: Display a set of manually selected related items with your posts
 Author: Microkid
-Version: 4.0.1
+Version: 4.0.2
 Author URI: http://www.superinteractive.com
 
 This software is distributed in the hope that it will be useful,
@@ -12,8 +12,13 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 
+define('MRP_DB_VERSION', '4.0.2');
+
 # Run at activation 
 register_activation_hook( __FILE__, 'MRP_activate' );
+
+# Check for database upgrade
+add_action('admin_init', 'MRP_upgrade');
 
 # Add custom box on edit page
 add_action('admin_menu', 'MRP_add_custom_box');
@@ -128,6 +133,25 @@ function MRP_activate() {
 	    $options['hide_donate'] = 0;
 	    update_option( "MRP_options", $options );
 	}	
+}
+
+/**
+* MRP_upgrade() - Check if plugin is being upgraded
+* 				  This should be made a little more sophisticated in the future
+*/
+function MRP_upgrade() {
+
+	$current_version = get_option('MRP_current_db_version');
+
+	if(version_compare($current_version, MRP_DB_VERSION, '==')) {
+		return;
+	}
+
+	if(!$current_version || version_compare($current_version, MRP_DB_VERSION, '<')) {
+		// Upgrading to 4.0.2
+		MRP_activate();
+		update_option('MRP_current_db_version', MRP_DB_VERSION);
+	}
 }
 	
 	
