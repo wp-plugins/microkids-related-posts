@@ -26,7 +26,7 @@ jQuery(document).ready(function($){
 
 	var timer = 0;	
 	$(".MRP_search").bind('keyup', function(e){
-		if($(this).val().length > 3) {
+		if($(this).val().length > 2) {
 			var id = $(this).attr('id');
 			if((e.keyCode > 47 && e.keyCode < 91 ) || e.keyCode == 8 || e.keyCode == 13){
 				clearTimeout(timer);
