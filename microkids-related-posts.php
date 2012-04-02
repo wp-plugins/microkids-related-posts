@@ -4,7 +4,7 @@ Plugin Name: Microkid's Related Posts
 Plugin URI: http://www.microkid.net/wordpress/related-posts/
 Description: Display a set of manually selected related items with your posts
 Author: Microkid
-Version: 4.0.2
+Version: 4.0.3
 Author URI: http://www.superinteractive.com
 
 This software is distributed in the hope that it will be useful,
@@ -346,10 +346,11 @@ function MRP_save_postdata( $post_id ) {
 		} else {
 			MRP_delete_relationships($post_id);
 			foreach( $related_posts as $related_post_sub_list ) {
-				$counter=0;
+				$counter = 0;
 				foreach($related_post_sub_list AS $related_post){
 					$related_post = (int) $related_post;
-					$query = "INSERT INTO ".$wpdb->prefix."post_relationships VALUES( $post_id, $related_post , 0, $counter++ )";
+					$new_count = $counter++;
+					$query = "INSERT INTO ".$wpdb->prefix."post_relationships VALUES( $post_id, $related_post , 0, $new_count )";
 					$result = $wpdb->query( $query );
 				}
 			}
@@ -469,13 +470,13 @@ function MRP_get_related_posts( $post_id, $return_object = false, $hide_unpublis
 	}
 	# Not reciprocal
 	else {
-		$query = "SELECT * ".
+		$query = "SELECT *, position1 AS position_unified ".
 			"FROM ".$wpdb->prefix."post_relationships	wpr ".
 			" JOIN ".$wpdb->prefix."posts				wp ".
 			"	ON wpr.post2_id = wp.ID ".
 			"WHERE wpr.post1_id = $post_id";
 		# Hide unpublished?
-		if( $hide_unpublished ) {
+		if( $hide_unpublished) {
 			$query .= " AND wp.post_status IN (".implode( ",", $post_status ).") ";
 		}
 		# Show only specified post type?

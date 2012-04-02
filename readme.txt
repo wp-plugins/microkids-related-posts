@@ -3,7 +3,7 @@ Contributors: microkid,
 Tags: related, posts, seo, content, articles, relevant, similar, custom posts, custom post types
 Requires at least: 2.5
 Tested up to: 3.3.1
-Stable tag: 4.0.2
+Stable tag: 4.0.3
 
 Increase your pageviews and SEO by manually selecting related posts for your content. Easy reciprocal linking of related posts and pages.
 
