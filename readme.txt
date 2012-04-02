@@ -13,7 +13,7 @@ This powerful plugin makes it super easy to manually select related posts for yo
 
 Creating a system of related items on your website will result in more page views per unique visitor, and will improve Google's understanding of your content.
 
-As quoted by [WordPress SEO](http://yoast.com/articles/wordpress-seo/#relatedposts "WordPress SEO and Related Posts ") master Yoast:
+As mentioned by [WordPress SEO](http://yoast.com/articles/wordpress-seo/#relatedposts "WordPress SEO and Related Posts ") master Yoast:
 
 > A very good alternative is Microkid's related post plugin, which lets you manually pick related posts. This might cost a bit more time before you hit publish but might very well be worth your while.
 
@@ -72,6 +72,9 @@ Please leave me a comment at the [Related Posts for WordPress](http://www.microk
 3. The Related Posts widget lets you automatically display related posts in your dynamic sidebar
 
 == Change Log ==
+
+= 4.0.3 =
+* Fixed bug that would prevent related posts from showing when using automatic sorting and reciprocal linking turned off.
 
 = 4.0.2 =
 * Added hook for proper database configuration when upgrading
